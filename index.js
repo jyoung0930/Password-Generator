@@ -1,0 +1,112 @@
+let generate_btn = document.querySelector("#pw-btn");
+let pwDisplay1 = document.querySelector("#pw-display-1");
+let pwDisplay2 = document.querySelector("#pw-display-2");
+
+const characters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "~",
+  "`",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "_",
+  "-",
+  "+",
+  "=",
+  "{",
+  "[",
+  "}",
+  "]",
+  ",",
+  "|",
+  ":",
+  ";",
+  "<",
+  ">",
+  ".",
+  "?",
+  "/",
+];
+
+function randomPassword() {
+  randomLetters = [];
+  for (let i = 0; i < characters.length; i++) {
+    randomLetters.push(
+      characters[Math.floor(Math.random() * characters.length)]
+    );
+  }
+  return randomLetters.slice(0, 15);
+}
+
+generate_btn.addEventListener("click", () => {
+  pwDisplay1.textContent = randomPassword().join("");
+  pwDisplay2.textContent = randomPassword().join("");
+});

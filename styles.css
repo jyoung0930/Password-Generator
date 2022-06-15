@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  margin: 50px auto 0 auto;
+  padding: 115px 52px;
+  background: #1f2937;
+  height: 550px;
+  width: 550px;
+}
+
+#heading {
+  font-size: 40px;
+  line-height: 40px;
+  color: white;
+  font-family: "Karla", sans-serif;
+}
+
+#heading-2 {
+  color: #10b981;
+}
+
+#sub-heading {
+  color: #d5d4d8;
+  font-family: inter;
+  line-height: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+#pw-btn {
+  width: 200px;
+  height: 50px;
+  background: #10b981;
+  padding: 9px 17px 9px 15px;
+  letter-spacing: 2px;
+  border: none;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+  color: white;
+  cursor: pointer;
+  margin: 50px 0 30px 0;
+}
+
+hr {
+  border: 1px solid #2f3e53;
+}
+
+#pw-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.dis {
+  background: #273549;
+  width: 211px;
+  height: 39px;
+  border-radius: 6px;
+  text-align: center;
+  color: #5def92;
+  line-height: 32px;
+  font-family: "Inter", sans-serif;
+}
