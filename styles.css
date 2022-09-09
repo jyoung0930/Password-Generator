@@ -1,0 +1,71 @@
+/* imports */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Colors */
+
+:root {
+  --main-bg-color: #18171f;
+  --secondary-bg-color: #24232c;
+  --main-font-color: #e6e5ea;
+  --secondary-font-color: #817d92;
+  --bar-color-1: #f64a4a;
+  --bar-color-2: #fb7c58;
+  --bar-color-3: #fb7c58;
+  --utility-color: #a4ffaf;
+}
+
+/* Typography */
+
+h1,
+h2,
+body {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 42px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--secondary-font-color);
+}
+
+body {
+  font-size: 18px;
+  line-height: 24px;
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Main Section */
+
+.main-heading {
+  margin-bottom: 31px;
+}
+
+.container {
+  width: 540px;
+  height: 632px;
+  background-color: #e6e5ea;
+}
+
+.input-container {
+  width: 100%;
+  height: 80px;
+}
