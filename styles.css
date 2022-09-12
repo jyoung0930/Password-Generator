@@ -62,10 +62,49 @@ body {
 .container {
   width: 540px;
   height: 632px;
-  background-color: #e6e5ea;
 }
 
-.input-container {
-  width: 100%;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.text-output {
   height: 80px;
+  border: none;
+  font-size: 42px;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--main-font-color);
+}
+
+.text-output,
+.slider-section {
+  background-color: var(--secondary-bg-color);
+  padding: 20px;
+}
+
+.slider-section {
+  height: 510px;
+  margin-top: 20px;
+}
+
+.text-output {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.generated-password {
+  color: var(--secondary-font-color);
+}
+
+.copy-section {
+  font-size: 20px;
+  color: var(--utility-color);
+}
+
+.fa-copy:hover {
+  color: whitesmoke;
+  cursor: pointer;
 }
