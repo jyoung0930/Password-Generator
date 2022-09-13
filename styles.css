@@ -131,6 +131,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 30px;
   background: white;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .character-length-section {
@@ -146,4 +147,17 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover {
   background: black;
   border: 2px solid var(--utility-color);
+}
+
+/* Check Box Section */
+
+.checkbox {
+  margin-bottom: 30px;
+}
+
+input[type="checkbox"] {
+  width: 15px; /*Desired width*/
+  height: 15px; /*Desired height*/
+  cursor: pointer;
+  accent-color: var(--utility-color);
 }
