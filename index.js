@@ -91,7 +91,26 @@ const symbols = [
   "+",
   "=",
 ];
+const sliderValueText = document.querySelector(".slider-value");
+const sliderInput = document.querySelector(".slider");
+const checkbox = document.querySelectorAll("input[type=checkbox]");
+let passsWord = "";
 
+function getPassword() {
+  for (let i = 0; i < sliderInput.value; i++) {
+    const randomCharacter =
+      characters[Math.floor(Math.random() * characters.length)];
+    if (checkbox[0].checked === true) {
+      randomCharacter;
+    }
+  }
+}
+getPassword();
+
+// Dispaly slider value
+sliderInput.addEventListener("change", () => {
+  sliderValueText.textContent = sliderInput.value;
+});
 // Slider Logic
 
 const slider = document.getElementById("myinput");
