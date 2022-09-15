@@ -75,11 +75,12 @@ const sliderInput = document.querySelector(".slider");
 const checkbox = document.querySelectorAll("input[type=checkbox]");
 const form = document.getElementById("submit");
 const generatedPassword = document.querySelector(".generated-password");
-let passsWord = [];
 
+// Generate Password
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  for (let i = 0; i < sliderInput.value; i++) {
+  let passsWord = [];
+  for (let i = 0; i <= sliderInput.value; i++) {
     if (checkbox[0].checked === true) {
       passsWord.push(
         upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)]
