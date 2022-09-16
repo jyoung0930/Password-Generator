@@ -75,6 +75,7 @@ const sliderInput = document.querySelector(".slider");
 const checkbox = document.querySelectorAll("input[type=checkbox]");
 const form = document.getElementById("submit");
 const generatedPassword = document.querySelector(".generated-password");
+const strengthBars = document.querySelectorAll(".bar");
 
 // Generate Password
 form.addEventListener("submit", (e) => {
@@ -85,22 +86,18 @@ form.addEventListener("submit", (e) => {
       passsWord.push(
         upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)]
       );
-      console.log("running1");
     }
     if (checkbox[1].checked === true) {
       passsWord.push(
         lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)]
       );
-      console.log("running2");
     }
 
     if (checkbox[2].checked === true) {
       passsWord.push(numbers[Math.floor(Math.random() * numbers.length)]);
-      console.log("running3");
     }
     if (checkbox[3].checked === true) {
       passsWord.push(symbols[Math.floor(Math.random() * symbols.length)]);
-      console.log("running4");
     }
   }
   passsWord = passsWord
@@ -109,11 +106,39 @@ form.addEventListener("submit", (e) => {
     .join("");
   generatedPassword.textContent = passsWord;
 });
-console.log(typeof lowerCaseLetters);
+
 // Dispaly slider value
 sliderInput.addEventListener("change", () => {
   sliderValueText.textContent = sliderInput.value;
 });
+
+// Check how many checkboxes are true and update strength bars
+checkbox.forEach((box) => {
+  box.addEventListener("change", () => {
+    let strengthBarArray = Array.from(strengthBars);
+    let checkedBoxes = [];
+    for (let i = 0; i < checkbox.length; i++) {
+      strengthBarArray[i].style.backgroundColor = "none";
+    }
+
+    for (let i = 0; i < checkbox.length; i++) {
+      if (checkbox[i].checked) {
+        checkedBoxes.push(i);
+      }
+    }
+
+    if (checkedBoxes.length - 1 === -1) {
+      strengthBarArray[0].style.backgroundColor = "red";
+      strengthBarArray[1].style.backgroundColor = "red";
+    }
+
+    console.log(checkbox[0]);
+    console.log(checkedBoxes.length - 1);
+    // strengthBars[1].style.backgroundColor = "pink";
+    console.log(strengthBarArray.slice(0, 2));
+  });
+});
+
 // Slider Logic
 
 const slider = document.getElementById("myinput");
