@@ -189,6 +189,14 @@ input[type="checkbox"] {
   width: 75px;
 }
 
+/* Initial bar colors on page load  */
+.bar:nth-of-type(1) {
+  background-color: yellow;
+}
+.bar:nth-of-type(2) {
+  background-color: yellow;
+}
+
 .strength-text {
   font-size: 24px;
   margin-right: 5px;

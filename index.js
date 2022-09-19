@@ -76,10 +76,16 @@ const checkbox = document.querySelectorAll("input[type=checkbox]");
 const form = document.getElementById("submit");
 const generatedPassword = document.querySelector(".generated-password");
 const strengthBars = document.querySelectorAll(".bar");
+const strengthText = document.querySelector(".strength-text");
+const submitButton = document.querySelector(".submit-btn");
+
+// Set initial value
+sliderInput.value = 5;
 
 // Generate Password
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   let passsWord = [];
   for (let i = 0; i <= sliderInput.value; i++) {
     if (checkbox[0].checked === true) {
@@ -107,9 +113,25 @@ form.addEventListener("submit", (e) => {
   generatedPassword.textContent = passsWord;
 });
 
-// Dispaly slider value
+// Dispaly slider value & Logic
 sliderInput.addEventListener("change", () => {
   sliderValueText.textContent = sliderInput.value;
+  let checkedBoxes = [];
+  for (let i = 0; i < checkbox.length; i++) {
+    if (checkbox[i].checked) {
+      checkedBoxes.push(i);
+    }
+  }
+  if (sliderInput.value < 5) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Please select value greater than 5!";
+    submitButton.style.backgroundColor = "gray";
+  }
+  if (checkedBoxes.length > 0 && sliderInput.value >= 5) {
+    submitButton.disabled = false;
+    submitButton.innerHTML = `GENERATE <i class="fas fa-angle-right"></i>`;
+    submitButton.style.backgroundColor = "#a4ffaf";
+  }
 });
 
 // Check how many checkboxes are true and update strength bars
@@ -118,24 +140,59 @@ checkbox.forEach((box) => {
     let strengthBarArray = Array.from(strengthBars);
     let checkedBoxes = [];
     for (let i = 0; i < checkbox.length; i++) {
-      strengthBarArray[i].style.backgroundColor = "none";
-    }
-
-    for (let i = 0; i < checkbox.length; i++) {
       if (checkbox[i].checked) {
         checkedBoxes.push(i);
       }
     }
 
-    if (checkedBoxes.length - 1 === -1) {
-      strengthBarArray[0].style.backgroundColor = "red";
-      strengthBarArray[1].style.backgroundColor = "red";
+    // Reset colors of strength bars
+    for (let i = 0; i < checkbox.length; i++) {
+      strengthBarArray[i].style.backgroundColor = "black";
     }
 
-    console.log(checkbox[0]);
-    console.log(checkedBoxes.length - 1);
-    // strengthBars[1].style.backgroundColor = "pink";
-    console.log(strengthBarArray.slice(0, 2));
+    if (checkedBoxes.length - 1 === -1) {
+      strengthBarArray[0].style.backgroundColor = "red";
+      strengthText.textContent = "Weak";
+    }
+    if (checkedBoxes.length - 1 === 0) {
+      strengthBarArray[0].style.backgroundColor = "yellow";
+      strengthBarArray[1].style.backgroundColor = "yellow";
+      strengthText.textContent = "OK";
+    }
+    if (checkedBoxes.length - 1 === 1) {
+      strengthBarArray[0].style.backgroundColor = "orange";
+      strengthBarArray[1].style.backgroundColor = "orange";
+      strengthBarArray[2].style.backgroundColor = "orange";
+      strengthText.textContent = "Good";
+    }
+    if (checkedBoxes.length - 1 === 2) {
+      strengthBarArray[0].style.backgroundColor = "green";
+      strengthBarArray[1].style.backgroundColor = "green";
+      strengthBarArray[2].style.backgroundColor = "green";
+      strengthBarArray[3].style.backgroundColor = "green";
+      strengthText.textContent = "Great";
+    }
+
+    if (checkedBoxes.length - 1 > 2) {
+      strengthBarArray[0].style.backgroundColor = "green";
+      strengthBarArray[1].style.backgroundColor = "green";
+      strengthBarArray[2].style.backgroundColor = "green";
+      strengthBarArray[3].style.backgroundColor = "green";
+      strengthText.textContent = "Awesome";
+    }
+
+    if (checkedBoxes.length === 0) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Please check a box!";
+      submitButton.style.backgroundColor = "gray";
+    }
+    if (checkedBoxes.length > 0 && sliderInput.value >= 5) {
+      submitButton.disabled = false;
+      submitButton.innerHTML = `GENERATE <i class="fas fa-angle-right"></i>`;
+      submitButton.style.backgroundColor = "#a4ffaf";
+    }
+
+    console.log(sliderInput.value);
   });
 });
 
