@@ -80,6 +80,7 @@ const strengthText = document.querySelector(".strength-text");
 const submitButton = document.querySelector(".submit-btn");
 const copyButton = document.querySelector(".fa-copy");
 const copyText = document.querySelector(".copy-confirmation-text");
+const hiddenInput = document.querySelector(".hidden-text-input");
 
 // Set initial value
 sliderInput.value = 5;
@@ -90,7 +91,8 @@ copyButton.disabled = true;
 // Generate Password
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  // Remove copy text
+  copyText.textContent = "";
   let passsWord = [];
   for (let i = 0; i <= sliderInput.value; i++) {
     if (checkbox[0].checked === true) {
@@ -116,15 +118,15 @@ form.addEventListener("submit", (e) => {
     .slice(0, sliderInput.value)
     .join("");
   generatedPassword.textContent = passsWord;
+  hiddenInput.value = passsWord;
 
-  // Enable copy button
+  // Enable copy button & Copy Text
   copyButton.disabled = false;
   copyButton.addEventListener("click", () => {
-    setTimeout(() => {
-      copyText.textContent = "copied";
-    }),
-      1000;
-    clearTimeout();
+    hiddenInput.select();
+    hiddenInput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(hiddenInput.value);
+    copyText.textContent = "copied";
   });
 });
 

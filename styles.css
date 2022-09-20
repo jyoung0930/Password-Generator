@@ -228,3 +228,7 @@ button:hover {
   color: var(--utility-color);
   border: 1px solid var(--utility-color);
 }
+
+.hidden-text-input {
+  display: none;
+}
