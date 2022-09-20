@@ -78,9 +78,14 @@ const generatedPassword = document.querySelector(".generated-password");
 const strengthBars = document.querySelectorAll(".bar");
 const strengthText = document.querySelector(".strength-text");
 const submitButton = document.querySelector(".submit-btn");
+const copyButton = document.querySelector(".fa-copy");
+const copyText = document.querySelector(".copy-confirmation-text");
 
 // Set initial value
 sliderInput.value = 5;
+
+// Disable copy button
+copyButton.disabled = true;
 
 // Generate Password
 form.addEventListener("submit", (e) => {
@@ -111,6 +116,16 @@ form.addEventListener("submit", (e) => {
     .slice(0, sliderInput.value)
     .join("");
   generatedPassword.textContent = passsWord;
+
+  // Enable copy button
+  copyButton.disabled = false;
+  copyButton.addEventListener("click", () => {
+    setTimeout(() => {
+      copyText.textContent = "copied";
+    }),
+      1000;
+    clearTimeout();
+  });
 });
 
 // Dispaly slider value & Logic
@@ -124,13 +139,16 @@ sliderInput.addEventListener("change", () => {
   }
   if (sliderInput.value < 5) {
     submitButton.disabled = true;
-    submitButton.textContent = "Please select value greater than 5!";
-    submitButton.style.backgroundColor = "gray";
+    submitButton.textContent = "Please select a value greater than 5!";
   }
+  if (checkedBoxes.length === 0 && sliderInput.value >= 5) {
+    submitButton.disabled = true;
+    submitButton.innerHTML = `Please check a box!`;
+  }
+
   if (checkedBoxes.length > 0 && sliderInput.value >= 5) {
     submitButton.disabled = false;
     submitButton.innerHTML = `GENERATE <i class="fas fa-angle-right"></i>`;
-    submitButton.style.backgroundColor = "#a4ffaf";
   }
 });
 
@@ -184,15 +202,23 @@ checkbox.forEach((box) => {
     if (checkedBoxes.length === 0) {
       submitButton.disabled = true;
       submitButton.textContent = "Please check a box!";
-      submitButton.style.backgroundColor = "gray";
+    }
+
+    if (sliderInput.value < 5 && checkedBoxes.length === 0) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Please select a value greater than 5!";
+    }
+
+    if (checkedBoxes.length > 0 && sliderInput.value >= 5) {
+      submitButton.disabled = false;
+      submitButton.innerHTML = `GENERATE <i class="fas fa-angle-right"></i>`;
     }
     if (checkedBoxes.length > 0 && sliderInput.value >= 5) {
       submitButton.disabled = false;
       submitButton.innerHTML = `GENERATE <i class="fas fa-angle-right"></i>`;
-      submitButton.style.backgroundColor = "#a4ffaf";
     }
 
-    console.log(sliderInput.value);
+    console.log(checkedBoxes.length);
   });
 });
 
