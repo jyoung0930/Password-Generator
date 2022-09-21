@@ -105,6 +105,10 @@ form {
   color: var(--utility-color);
 }
 
+.fa-copy {
+  transition: color 0.4s ease-in-out;
+}
+
 .fa-copy:hover {
   color: whitesmoke;
   cursor: pointer;
@@ -132,6 +136,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: white;
   border-radius: 50%;
   cursor: pointer;
+  transition: background 0.4s ease-in-out;
 }
 
 .character-length-section {
@@ -196,6 +201,9 @@ input[type="checkbox"] {
 .bar:nth-of-type(2) {
   background-color: yellow;
 }
+.bar:nth-of-type(3) {
+  background-color: yellow;
+}
 
 .strength-text {
   font-size: 24px;
@@ -221,6 +229,7 @@ button {
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
 }
 
 button:hover {
@@ -228,7 +237,23 @@ button:hover {
   color: var(--utility-color);
   border: 1px solid var(--utility-color);
 }
-
+/* Hidden text input  */
 .hidden-text-input {
   display: none;
+}
+
+/* Media queries */
+
+@media (max-width: 550px) {
+  .container {
+    width: 343px;
+    height: 540px;
+  }
+  .generated-password {
+    font-size: 30px;
+  }
+
+  .strength-text {
+    font-size: 20px;
+  }
 }

@@ -170,27 +170,25 @@ checkbox.forEach((box) => {
       strengthBarArray[i].style.backgroundColor = "black";
     }
 
-    if (checkedBoxes.length - 1 === -1) {
-      strengthBarArray[0].style.backgroundColor = "red";
-      strengthText.textContent = "Weak";
-    }
+    // if (checkedBoxes.length - 1 === -1) {
+    //   strengthBarArray[0].style.backgroundColor = "red";
+    //   strengthText.textContent = "Too Weak!";
+    // }
+
     if (checkedBoxes.length - 1 === 0) {
-      strengthBarArray[0].style.backgroundColor = "yellow";
-      strengthBarArray[1].style.backgroundColor = "yellow";
-      strengthText.textContent = "OK";
+      strengthBarArray[0].style.backgroundColor = "red";
+      strengthText.textContent = "Too Weak!";
     }
     if (checkedBoxes.length - 1 === 1) {
       strengthBarArray[0].style.backgroundColor = "orange";
       strengthBarArray[1].style.backgroundColor = "orange";
-      strengthBarArray[2].style.backgroundColor = "orange";
-      strengthText.textContent = "Good";
+      strengthText.textContent = "Weak";
     }
     if (checkedBoxes.length - 1 === 2) {
-      strengthBarArray[0].style.backgroundColor = "green";
-      strengthBarArray[1].style.backgroundColor = "green";
-      strengthBarArray[2].style.backgroundColor = "green";
-      strengthBarArray[3].style.backgroundColor = "green";
-      strengthText.textContent = "Great";
+      strengthBarArray[0].style.backgroundColor = "yellow";
+      strengthBarArray[1].style.backgroundColor = "yellow";
+      strengthBarArray[2].style.backgroundColor = "yellow";
+      strengthText.textContent = "Medium";
     }
 
     if (checkedBoxes.length - 1 > 2) {
@@ -198,7 +196,7 @@ checkbox.forEach((box) => {
       strengthBarArray[1].style.backgroundColor = "green";
       strengthBarArray[2].style.backgroundColor = "green";
       strengthBarArray[3].style.backgroundColor = "green";
-      strengthText.textContent = "Awesome";
+      strengthText.textContent = "Strong";
     }
 
     if (checkedBoxes.length === 0) {
@@ -219,8 +217,6 @@ checkbox.forEach((box) => {
       submitButton.disabled = false;
       submitButton.innerHTML = `GENERATE <i class="fas fa-angle-right"></i>`;
     }
-
-    console.log(checkedBoxes.length);
   });
 });
 
