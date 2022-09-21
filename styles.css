@@ -260,4 +260,8 @@ button:hover {
   .slider-section {
     height: 520px;
   }
+
+  .strength-text {
+    font-size: 16px;
+  }
 }
