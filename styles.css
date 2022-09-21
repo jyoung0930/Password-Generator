@@ -256,4 +256,8 @@ button:hover {
   .copy-section {
     font-size: 15px;
   }
+
+  .slider-section {
+    height: 520px;
+  }
 }
