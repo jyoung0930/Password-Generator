@@ -47,22 +47,19 @@ body {
   line-height: 24px;
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
 /* Main Section */
 
 .main-heading {
-  margin-bottom: 31px;
+  margin: 30px;
+  text-align: center;
 }
 
 .container {
   width: 540px;
   height: 632px;
+  margin: 0 auto;
 }
 
 form {
