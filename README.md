@@ -1,6 +1,6 @@
 # Password Generator [September 23rd 2022]
 
-This project is one the intermediate Javascrpit challenges from [Frontend Mentor](https://www.frontendmentor.io/).
+This project is one of the intermediate Javascrpit challenges from [Frontend Mentor](https://www.frontendmentor.io/).
 
 ## Table of contents
 
